@@ -39,64 +39,264 @@ qrencode -o /usr/share/nginx/html/L$UUID.png $vllink
 qrencode -o /usr/share/nginx/html/T$UUID.png $trlink
 
 cat > /usr/share/nginx/html/$UUID.html<<-EOF
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Argo-xray-paas</title>
-    <style type="text/css">
-        body {
-            font-family: Geneva, Arial, Helvetica, san-serif;
-        }
 
-        div {
-            margin: 0 auto;
-            text-align: left;
-            white-space: pre-wrap;
-            word-break: break-all;
-            max-width: 80%;
-            margin-bottom: 10px;
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+ <head>
+     <meta charset="utf-8" />
+     <title>MrPanda-Xray</title>
+     <!-- Link Favicon -->
+     <link rel="shortcut icon" href="favicon.png" type="image/x-png"/>
+     <style>
+        .buttonA {
+           border: none;
+           color: white;
+           padding: 15px 40px;
+           text-align: center;
+           text-decoration: none;
+           display: inline-block;
+           font-size: 25px;
+           margin: 15px 20px;
+           transition-duration: 0.3s;
+           cursor: pointer;
+         }
+         .button1 {
+           background-color: white;
+           color: black;
+           border: 2px solid #D30000;
+         }
+         .button1:hover {
+           background-color: #D30000;
+           color: white;
+         }
+         .button2 {
+           background-color: white;
+           color: black;
+           border: 2px solid #008CBA;
+         }
+
+         .button2:hover {
+           background-color: #008CBA;
+           color: white;
+         }
+         .button3 {
+           background-color: white;
+           color: black;
+           border: 2px solid #5953A2;
+         }
+
+         .button3:hover {
+           background-color: #5953A2;
+           color: white;
+         }
+
+        .buttonx {
+           border: none;
+           color: white;
+           padding: 15px 15px;
+           text-align: center;
+           text-decoration: none;
+           display: inline-block;
+           font-size: 25px;
+           margin: 15px 20px;
+           transition-duration: 0.3s;
+           cursor: pointer;
+         }
+         .button4 {
+           background-color: white;
+           color: black;
+           border: 2px solid #2F4F4F;
+         }
+         .button4:hover {
+           background-color: #2F4F4F;
+           color: #E9967A;
+         }
+         .button5 {
+           background-color: white;
+           color: black;
+           border: 2px solid #6A5ABC;
+         }
+
+         .button5:hover {
+           background-color: #6A5ABC;
+           color: #E9967A;
+         }
+         .button6 {
+           background-color: white;
+           color: black;
+           border: 2px solid #1E90FF;
+         }
+
+         .button6:hover {
+           background-color: #1E90FF;
+           color: #F38020;
+         }
+     </style>
+ </head>
+<body>
+    <header>
+        <font face="Gabriola" color="#009900"><h2 align="center"><b>MrPanda-ArgoPass</b></h2></font>
+    </header>
+    <hr>
+    <p>
+        <b><font face="Helvetica" size="4" color="#009900">Argo-Xray Informaion:</font></b>
+    </p>
+    <table style="width:70%" border="1" cellpadding="5" cellspacing="5">
+        <tr>
+            <th>Adress</th>
+            <th>Port</th>
+            <th>UUID</th>
+            <th>Encryption method</th>
+            <th>TP Protocol</th>
+            <th>WS Host</th>
+            <th>Path</th>
+            <th>TLS</th>
+            <th>SNI</th>
+        </tr>
+        <tr>
+            <td>$argo_url</td>
+            <td>443</td>
+            <td>$UUID</td>
+            <td>auto</td>
+            <td>WS</td>
+            <td>$argo_url</td>
+            <td>/vmess?ed=2048 <br> /vless?ed=2048 <br> /trojan?ed=2048</td>
+            <td>ON</td>
+            <td>$argo_url</td>
+        </tr>
+    </table>
+    <hr>
+    <font face="Helvetica" size="4" color="#009900"><b>V2Ray Argo-URL:</b></font>
+    <br>
+	<button id="VMess1" onclick="VMess1()" class="buttonA button1"> 
+    <?xml version="1.0" encoding="utf-8"?><svg fill="currentColor" width="25" height="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 115.77 122.88" style="enable-background:new 0 0 115.77 122.88" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;}</style><g><path class="st0" d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z"/></g></svg>
+	Copy Vmess
+	</button>
+	    <script>
+        var pre = document.getElementById("VMess1");
+        function VMess1(){
+        navigator.clipboard.writeText("$vmlink");
         }
-    </style>
-</head>
-<body bgcolor="#FFFFFF" text="#000000">
-    <div>
-        <font color="#009900"><b>VMESS protocol link：</b></font>
-    </div>
-    <div>$vmlink</div>
-    <div>
-        <font color="#009900"><b>VMESS protocol QR code：</b></font>
-    </div>
-    <div><img src="/M$UUID.png"></div>
-    <div>
-        <font color="#009900"><b>VLESS protocol link：</b></font>
-    </div>
-    <div>$vllink</div>
-    <div>
-        <font color="#009900"><b>VLESS protocol QR code：</b></font>
-    </div>
-    <div><img src="/L$UUID.png"></div>
-    <div>
-        <font color="#009900"><b>TROJAN protocol link：</b></font>
-    </div>
-    <div>$trlink</div>
-    <div>
-        <font color="#009900"><b>TROJAN protocol QR code：</b></font>
-    </div>
-    <div><img src="/T$UUID.png"></div>
-    <div>
-        <font color="#009900"><b>SS protocol plain text：</b></font>
-    </div>
-    <div>server address：$argo_url</div>
-    <div>port：443</div>
-    <div>password：$UUID</div>
-    <div>Encryption：chacha20-ietf-poly1305</div>
-    <div>Transfer Protocol：ws</div>
-    <div>host：$argo_url</div>
-    <div>path：$SS_WSPATH?ed=2048</div>
-    <div>TLS：turn on</div>
+    </script>
+	
+	<br>
+	
+    <button id="VLess1" onclick="VLess1()" class="buttonA button2">
+	<?xml version="1.0" encoding="utf-8"?><svg fill="currentColor" width="25" height="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 115.77 122.88" style="enable-background:new 0 0 115.77 122.88" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;}</style><g><path class="st0" d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z"/></g></svg>
+	Copy Vless
+	</button>
+    <script>
+        var pre = document.getElementById("VLess1");
+        function VLess1(){
+        navigator.clipboard.writeText("$vllink");
+        }
+    </script>
+	<br>
+    <button id="Trojan1" onclick="Trojan1()" class="buttonA button3">
+	<?xml version="1.0" encoding="utf-8"?><svg fill="currentColor" width="25" height="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 115.77 122.88" style="enable-background:new 0 0 115.77 122.88" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;}</style><g><path class="st0" d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z"/></g></svg>
+	Copy Trojan
+	</button>
+    <script>
+        var pre = document.getElementById("Trojan1");
+        function Trojan1(){
+        navigator.clipboard.writeText("$trlink");
+        }
+    </script>
+    <br>
+    <hr>
+    <font face="Helvetica" size="4" color="#009900"><b>V2Ray - CloudFlare Clean IP:</b></font>
+    <br>
+    <button id="VMess2" onclick="VMess2()" class="buttonx button4">
+	<svg fill="currentColor" width="40" height="40" xmlns="http://www.w3.org/2000/svg" aria-label="Cloudflare" viewBox="0 0 512 512" id="cloudflare"><rect width="512" height="512" fill="#fff" rx="15%"></rect><path fill="#f38020" d="M331 326c11-26-4-38-19-38l-148-2c-4 0-4-6 1-7l150-2c17-1 37-15 43-33 0 0 10-21 9-24a97 97 0 0 0-187-11c-38-25-78 9-69 46-48 3-65 46-60 72 0 1 1 2 3 2h274c1 0 3-1 3-3z"></path><path fill="#faae40" d="M381 224c-4 0-6-1-7 1l-5 21c-5 16 3 30 20 31l32 2c4 0 4 6-1 7l-33 1c-36 4-46 39-46 39 0 2 0 3 2 3h113l3-2a81 81 0 0 0-78-103"></path></svg>
+	Copy CloudFlare Vmess
+	</button>
+    <script>
+        var pre = document.getElementById("VMess2");
+        function VMess2(){
+        navigator.clipboard.writeText("$vm2link");
+        }
+    </script>
+	<br>
+    <button id="VLess2" onclick="VLess2()" class="buttonx button5">
+	<svg fill="currentColor" width="40" height="40" xmlns="http://www.w3.org/2000/svg" aria-label="Cloudflare" viewBox="0 0 512 512" id="cloudflare"><rect width="512" height="512" fill="#fff" rx="15%"></rect><path fill="#f38020" d="M331 326c11-26-4-38-19-38l-148-2c-4 0-4-6 1-7l150-2c17-1 37-15 43-33 0 0 10-21 9-24a97 97 0 0 0-187-11c-38-25-78 9-69 46-48 3-65 46-60 72 0 1 1 2 3 2h274c1 0 3-1 3-3z"></path><path fill="#faae40" d="M381 224c-4 0-6-1-7 1l-5 21c-5 16 3 30 20 31l32 2c4 0 4 6-1 7l-33 1c-36 4-46 39-46 39 0 2 0 3 2 3h113l3-2a81 81 0 0 0-78-103"></path></svg>
+	Copy CloudFlare Vless
+	</button>
+    <script>
+        var pre = document.getElementById("VLess2");
+        function VLess2(){
+        navigator.clipboard.writeText("$vl2link");
+        }
+    </script>
+	<br>
+    <button id="Trojan2" onclick="Trojan2()" class="buttonx button6">
+	<svg fill="currentColor" width="40" height="40" xmlns="http://www.w3.org/2000/svg" aria-label="Cloudflare" viewBox="0 0 512 512" id="cloudflare"><rect width="512" height="512" fill="#fff" rx="15%"></rect><path fill="#f38020" d="M331 326c11-26-4-38-19-38l-148-2c-4 0-4-6 1-7l150-2c17-1 37-15 43-33 0 0 10-21 9-24a97 97 0 0 0-187-11c-38-25-78 9-69 46-48 3-65 46-60 72 0 1 1 2 3 2h274c1 0 3-1 3-3z"></path><path fill="#faae40" d="M381 224c-4 0-6-1-7 1l-5 21c-5 16 3 30 20 31l32 2c4 0 4 6-1 7l-33 1c-36 4-46 39-46 39 0 2 0 3 2 3h113l3-2a81 81 0 0 0-78-103"></path></svg>
+	Copy CloudFlare Trojan
+	</button>
+    <script>
+        var pre = document.getElementById("Trojan2");
+        function Trojan2(){
+        navigator.clipboard.writeText("$tr2link");
+        }
+    </script>
+
+    <hr>
+    <p>
+        <b><font face="Helvetica" size="4" color="#009900">CloudFlare Clean IPs:</font></b>
+    </p>
+    <table style="width:70%" border="1" cellpadding="5" cellspacing="5">
+        <tr>
+            <th>TCI</th>
+            <th>MCI</th>
+            <th>Irancell</th>
+            <th>Rightel</th>
+            <th>Shatel</th>
+            <th>Hiweb</th>
+            <th>Asiatech</th>
+        </tr>
+        <tr>
+            <td>Mokhaberat.ddns.net</td>
+            <td>mci.ircf.space</td>
+            <td>mtn.ircf.space</td>
+            <td>rtl.ircf.space</td>
+            <td>sht.ircf.space</td>
+            <td>hwb.ircf.space</td>
+            <td>ast.ircf.space</td>
+        </tr>
+        <tr>
+            <td>mkh.ircf.space</td>
+            <td>mcix.ircf.space</td>
+            <td>mtnx.ircf.space</td>
+            <td>198.41.201.125</td>
+            <td>172.68.19.138</td>
+            <td>170.114.46.36</td>
+            <td>45.12.30.11</td>
+        </tr>
+        <tr>
+            <td>mkhx.ircf.space</td>
+            <td>mcic.ircf.space</td>
+            <td>mtnc.ircf.space</td>
+            <td>188.42.89.174</td>
+            <td>104.20.190.247</td>
+            <td>000.000.000.000</td>
+            <td>000.000.000.000</td>
+        </tr>
+    </table>
+
+
+
+<hr>
+ <footer>
+     <font size="5" face="Gabriola">
+     <a href="https://t.me/MrPand">Rebiult By MrPanda</a>
+         <br>
+         Thanks for <a href="https://t.me/yebekhe">YeBeKhe</a> & <a href="https://ircf.space">IRCF.SPACE</a>
+     </font>
+</footer>
+
+
 </body>
 </html>
+
 EOF
 
 nginx
